@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>katia — this is me · corkboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Kalam:wght@300;400;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="scene">
+  <div class="board-wrap" id="boardWrap">
+    <div class="frame top"></div>
+    <div class="frame left"></div>
+    <div class="frame right"></div>
+    <div class="frame bottom"></div>
+    <div class="ribbon"></div>
+    <div class="board" id="board">
+
+      <!-- name banner -->
+      <div class="item banner grain paper" style="left:368px;top:26px;--r:-1deg">
+        <span class="pin left" style="--c:#3b6fd6"></span>
+        <span class="pin right" style="--c:#d6a23b"></span>
+        <h1>katia ✿</h1>
+        <p>designer · maker · serial hobbyist</p>
+      </div>
+
+      <!-- polaroid: sunset -->
+      <div class="item polaroid grain" style="left:52px;top:64px;--r:-4deg">
+        <span class="pin" style="--c:#d6453c"></span>
+        <div class="photo">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="sk1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffe2ae"/><stop offset=".5" stop-color="#ffa173"/><stop offset=".78" stop-color="#e76e90"/>
+            </linearGradient></defs>
+            <rect width="100" height="100" fill="url(#sk1)"/>
+            <circle cx="50" cy="56" r="16" fill="#fff3d6" opacity=".3"/>
+            <circle cx="50" cy="56" r="10.5" fill="#fff6dd"/>
+            <path d="M28 38q3-3.5 6 0M60 30q3-3.5 6 0M70 42q2.6-3 5.2 0" stroke="#6b3c55" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+            <rect y="64" width="100" height="36" fill="#6e4270"/>
+            <rect y="64" width="100" height="2.4" fill="#ffd9a0" opacity=".55"/>
+            <g fill="#ffcf9e" opacity=".5">
+              <rect x="44" y="69" width="13" height="1.6"/><rect x="46" y="74" width="9" height="1.4"/>
+              <rect x="43" y="80" width="14" height="1.3"/><rect x="47" y="87" width="7" height="1.2"/>
+            </g>
+          </svg>
+        </div>
+        <div class="cap">lisbon, golden hour ☼</div>
+      </div>
+
+      <!-- polaroid: mountains -->
+      <div class="item polaroid grain" style="left:218px;top:362px;--r:3deg">
+        <span class="pin" style="--c:#3f8f5c"></span>
+        <div class="photo">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="sk2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2a2550"/><stop offset=".6" stop-color="#5c4a7d"/><stop offset="1" stop-color="#a06a8a"/>
+            </linearGradient></defs>
+            <rect width="100" height="100" fill="url(#sk2)"/>
+            <circle cx="72" cy="22" r="9" fill="#f4ecd2"/>
+            <circle cx="69" cy="20" r="8" fill="#332e58" opacity=".88"/>
+            <g fill="#f4ecd2"><circle cx="18" cy="14" r="1"/><circle cx="34" cy="26" r=".8"/><circle cx="52" cy="12" r="1.1"/><circle cx="86" cy="38" r=".8"/><circle cx="10" cy="36" r=".7"/></g>
+            <path d="M-5 76 30 40 52 66 68 50 105 82V102H-5Z" fill="#2b2547"/>
+            <path d="M30 40l6 7-4 1 5 5-7-2z" fill="#cfc6e8" opacity=".8"/>
+            <path d="M-5 92 22 68 44 88 70 64 105 95v7H-5Z" fill="#1b1733"/>
+          </svg>
+        </div>
+        <div class="cap">alps · feb '26 ✻</div>
+      </div>
+
+      <!-- links note -->
+      <div class="item note-torn grain paper" style="left:700px;top:96px;--r:-2deg">
+        <span class="pin" style="--c:#7a4dbb"></span>
+        <div class="find">find me here ↓</div>
+        <a href="https://katiadejuan.com" target="_blank" rel="noopener">katiadejuan.com</a>
+        <a href="#" onclick="return false">@katia.makes</a>
+        <a href="#" onclick="return false">github / kdejuan</a>
+      </div>
+
+      <!-- things i love -->
+      <div class="item note-lined grain paper" style="left:46px;top:392px;--r:2deg">
+        <span class="pin" style="--c:#d6a23b"></span>
+        <h3>currently loving</h3>
+        ♡ ceramics on sundays<br>
+        ♡ film cameras<br>
+        ♡ overgrown pothos<br>
+        ♡ tiny jazz bars<br>
+        ♡ making this board
+      </div>
+
+      <!-- quote card -->
+      <div class="item quote-card grain paper" style="left:452px;top:170px;--r:2deg">
+        <span class="tape" style="left:46px;top:-13px;transform:rotate(-3deg);--t:rgba(173,216,230,.6)"></span>
+        <div class="blob">actually,<br>i can.</div>
+      </div>
+
+      <!-- guestbook -->
+      <div class="item guestbook grain" style="left:430px;top:390px;--r:-1deg">
+        <span class="pin left" style="--c:#b0413e"></span>
+        <span class="pin right" style="--c:#b0413e"></span>
+        <h3>✂ guestbook — stitched in</h3>
+        <div class="gnote">your boards are pure magic ✨ <em>— marta</em></div>
+        <div class="gnote">come back to lisbon!! <em>— rui</em></div>
+        <div class="write" contenteditable="true" spellcheck="false"></div>
+      </div>
+
+      <!-- photostrip -->
+      <div class="item strip grain" style="left:912px;top:330px;--r:2.5deg">
+        <span class="tape" style="left:14px;top:-13px;width:84px;transform:rotate(2deg);--t:rgba(255,220,160,.6)"></span>
+        <svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="92" fill="#2b2b33"/>
+          <circle cx="50" cy="44" r="24" fill="none" stroke="#e8e8df" stroke-width="2.4"/>
+          <circle cx="42" cy="38" r="2.4" fill="#e8e8df"/><circle cx="58" cy="38" r="2.4" fill="#e8e8df"/>
+          <path d="M40 52q10 8 20 0" stroke="#e8e8df" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        </svg>
+        <svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="92" fill="#24242c"/>
+          <circle cx="50" cy="44" r="24" fill="none" stroke="#e8e8df" stroke-width="2.4"/>
+          <path d="M38 38q4-4 8 0M54 38q4-4 8 0" stroke="#e8e8df" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+          <ellipse cx="50" cy="55" rx="7" ry="8" fill="#e8e8df"/>
+        </svg>
+        <svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="92" fill="#2b2b33"/>
+          <circle cx="50" cy="44" r="24" fill="none" stroke="#e8e8df" stroke-width="2.4"/>
+          <circle cx="42" cy="38" r="3.4" fill="none" stroke="#e8e8df" stroke-width="2"/>
+          <circle cx="58" cy="38" r="3.4" fill="none" stroke="#e8e8df" stroke-width="2"/>
+          <circle cx="50" cy="55" r="4.5" fill="none" stroke="#e8e8df" stroke-width="2.2"/>
+        </svg>
+      </div>
+
+      <!-- stickers -->
+      <div class="item sticker" style="left:330px;top:90px;--r:6deg">
+        <svg width="92" height="64" viewBox="0 0 92 64" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 56a36 36 0 0 1 72 0h-10a26 26 0 0 0-52 0z" fill="#fffdf7"/>
+          <path d="M16 56a30 30 0 0 1 60 0" fill="none" stroke="#f08a8a" stroke-width="6"/>
+          <path d="M22 56a24 24 0 0 1 48 0" fill="none" stroke="#f6c177" stroke-width="6"/>
+          <path d="M28 56a18 18 0 0 1 36 0" fill="none" stroke="#8fd0b0" stroke-width="6"/>
+          <ellipse cx="13" cy="55" rx="12" ry="8" fill="#fffdf7"/>
+          <ellipse cx="79" cy="55" rx="12" ry="8" fill="#fffdf7"/>
+        </svg>
+      </div>
+      <div class="item sticker" style="left:652px;top:330px;--r:-8deg">
+        <svg width="64" height="60" viewBox="0 0 64 60" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 54C12 40 4 28 8 17c3-9 16-11 24-3 8-8 21-6 24 3 4 11-4 23-24 37z"
+            fill="#e2566a" stroke="#fffdf7" stroke-width="7" paint-order="stroke" stroke-linejoin="round"/>
+          <path d="M18 18c2-3 6-4 9-2" stroke="#ffd3da" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="item sticker" style="left:946px;top:120px;--r:7deg">
+        <svg width="96" height="92" viewBox="0 0 96 92" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="88" height="84" rx="14" fill="#cfe8df" stroke="#fffdf7" stroke-width="6"/>
+          <text x="48" y="42" text-anchor="middle" font-family="Caveat,cursive" font-weight="700" font-size="26" fill="#3f6a5a">stay</text>
+          <text x="48" y="72" text-anchor="middle" font-family="Caveat,cursive" font-weight="700" font-size="26" fill="#3f6a5a">weird ✶</text>
+        </svg>
+      </div>
+
+      <div class="board-light"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ supply drawers ============ -->
+<div class="panel" id="panel-polaroid" hidden>
+  <button class="close">✕</button>
+  <h4>polaroids — pick a format</h4>
+  <div class="prow">
+    <div class="chip" data-type="single">▢ single shot</div>
+    <div class="chip" data-type="strip">▤ photo strip</div>
+    <div class="chip" data-type="grid">▦ photoshoot 2×2</div>
+  </div>
+  <div class="prow">
+    <label class="pbtn" style="display:inline-block">🎞 upload photo / gif
+      <input type="file" id="polFile" accept="image/*" hidden>
+    </label>
+    <span class="hint">develops in the darkroom — pick a filter there</span>
+  </div>
+  <div class="hint">it gets pinned with whatever pin you picked in the 📌 drawer</div>
+</div>
+
+<div class="panel" id="panel-sticky" hidden>
+  <button class="close">✕</button>
+  <h4>sticky notes</h4>
+  <div class="prow"><span class="lbl">colour</span>
+    <div class="chip colorchip" data-color="butter" style="background:linear-gradient(160deg,#fff6a8,#f5e27a)"></div>
+    <div class="chip colorchip" data-color="blush" style="background:linear-gradient(160deg,#ffd3da,#f7b3bf)"></div>
+    <div class="chip colorchip" data-color="mint" style="background:linear-gradient(160deg,#cdeede,#a8dcc3)"></div>
+    <div class="chip colorchip" data-color="sky" style="background:linear-gradient(160deg,#cfe0f5,#aac6ea)"></div>
+    <div class="chip colorchip" data-color="lilac" style="background:linear-gradient(160deg,#e6d8f7,#cdb8ee)"></div>
+  </div>
+  <div class="prow"><span class="lbl">shape</span>
+    <div class="chip" data-shape="square">▢ classic</div>
+    <div class="chip" data-shape="wide">▭ wide</div>
+    <div class="chip" data-shape="round">◯ round</div>
+  </div>
+  <div class="prow"><span class="lbl">stick with</span>
+    <div class="chip" data-attach="pin">📌 a pin</div>
+    <div class="chip" data-attach="tape" data-tape="blush"><span class="minitape" style="background:rgba(247,178,189,.85)"></span></div>
+    <div class="chip" data-attach="tape" data-tape="sky"><span class="minitape" style="background:rgba(173,216,230,.85)"></span></div>
+    <div class="chip" data-attach="tape" data-tape="butter"><span class="minitape" style="background:rgba(255,224,158,.85)"></span></div>
+    <div class="chip" data-attach="tape" data-tape="gingham"><span class="minitape" style="background:repeating-linear-gradient(0deg,rgba(196,80,77,.5) 0 4px,rgba(255,255,255,.6) 4px 8px),repeating-linear-gradient(90deg,rgba(196,80,77,.5) 0 4px,rgba(255,255,255,.6) 4px 8px)"></span></div>
+    <div class="chip" data-attach="tape" data-tape="dots"><span class="minitape" style="background-color:rgba(255,250,235,.9);background-image:radial-gradient(circle at 4px 4px,rgba(214,69,60,.6) 1.6px,transparent 2px);background-size:8px 8px"></span></div>
+    <div class="chip" data-attach="tape" data-tape="mint"><span class="minitape" style="background:rgba(150,220,190,.85)"></span></div>
+    <div class="chip" data-attach="tape" data-tape="lilac"><span class="minitape" style="background:rgba(206,184,238,.85)"></span></div>
+    <div class="chip" data-attach="tape" data-tape="stripes"><span class="minitape" style="background:repeating-linear-gradient(45deg,rgba(214,140,70,.7) 0 4px,rgba(255,250,235,.8) 4px 8px)"></span></div>
+    <div class="chip" data-attach="tape" data-tape="chevron"><span class="minitape" style="background-color:rgba(255,250,235,.85);background-image:linear-gradient(135deg,rgba(124,156,198,.7) 25%,transparent 25%),linear-gradient(225deg,rgba(124,156,198,.7) 25%,transparent 25%);background-size:8px 8px"></span></div>
+    <div class="chip" data-attach="tape" data-tape="hearts"><span class="minitape" style="background-color:rgba(255,238,242,.9);background-image:radial-gradient(circle at 4px 4px,rgba(224,127,154,.85) 1.8px,transparent 2.4px);background-size:8px 8px"></span></div>
+    <div class="chip" data-attach="tape" data-tape="stars"><span class="minitape" style="background-color:rgba(255,248,228,.9);background-image:radial-gradient(circle at 4px 4px,rgba(230,181,78,.9) 1.8px,transparent 2.4px);background-size:8px 8px"></span></div>
+    <div class="chip" data-attach="tape" data-tape="clear"><span class="minitape" style="background:linear-gradient(115deg,rgba(220,225,230,.6),rgba(245,247,250,.25) 50%,rgba(220,225,230,.5))"></span></div>
+    <div class="chip" data-attach="tape" data-tape="kraft"><span class="minitape" style="background:rgba(193,140,84,.95)"></span></div>
+  </div>
+  <div class="prow"><button class="pbtn" id="stickyAdd">stick it on the board</button></div>
+</div>
+
+<div class="panel" id="panel-note" hidden>
+  <button class="close">✕</button>
+  <h4>notes — write something real</h4>
+  <div class="prow"><span class="lbl">paper</span>
+    <div class="chip" data-npaper="p-lined">lined</div>
+    <div class="chip" data-npaper="p-grid">grid</div>
+    <div class="chip" data-npaper="p-plain">plain</div>
+    <label class="chip" id="paperUpChip">📷 your own…<input type="file" id="paperFile" accept="image/*" hidden></label>
+  </div>
+  <div class="prow"><span class="lbl">colour</span>
+    <div class="chip colorchip" data-ncolor="#fbf9f0" style="background:#fbf9f0"></div>
+    <div class="chip colorchip" data-ncolor="#f7f3e7" style="background:#f7f3e7"></div>
+    <div class="chip colorchip" data-ncolor="#e8d9bd" style="background:#e8d9bd"></div>
+    <div class="chip colorchip" data-ncolor="#fbe3e6" style="background:#fbe3e6"></div>
+    <div class="chip colorchip" data-ncolor="#e2ecf7" style="background:#e2ecf7"></div>
+  </div>
+  <div class="prow"><span class="lbl">handwriting</span>
+    <div class="chip" data-nfont="f-caveat" style="font-family:'Caveat',cursive;font-size:16px">neat ink</div>
+    <div class="chip" data-nfont="f-kalam" style="font-family:'Kalam',cursive">marker</div>
+    <div class="chip" data-nfont="f-shadows" style="font-family:'Shadows Into Light',cursive;font-size:15px">skinny</div>
+  </div>
+  <div class="prow"><span class="lbl">bullets</span>
+    <div class="chip" data-nbullet="">none</div>
+    <div class="chip" data-nbullet="♡">♡</div>
+    <div class="chip" data-nbullet="★">★</div>
+    <div class="chip" data-nbullet="•">•</div>
+    <div class="chip" data-nbullet="✿">✿</div>
+    <div class="chip" data-nbullet="✓">✓</div>
+  </div>
+  <div class="prow"><input type="text" id="noteTitle" placeholder="a little heading (optional)"></div>
+  <div class="prow"><span class="lbl">stick with</span>
+    <div class="chip" data-nattach="pin">📌 a pin</div>
+    <div class="chip" data-nattach="tape" data-ntape="blush"><span class="minitape" style="background:rgba(247,178,189,.85)"></span></div>
+    <div class="chip" data-nattach="tape" data-ntape="gingham"><span class="minitape" style="background:repeating-linear-gradient(0deg,rgba(196,80,77,.5) 0 4px,rgba(255,255,255,.6) 4px 8px),repeating-linear-gradient(90deg,rgba(196,80,77,.5) 0 4px,rgba(255,255,255,.6) 4px 8px)"></span></div>
+    <div class="chip" data-nattach="tape" data-ntape="stripes"><span class="minitape" style="background:repeating-linear-gradient(45deg,rgba(214,140,70,.7) 0 4px,rgba(255,250,235,.8) 4px 8px)"></span></div>
+    <div class="chip" data-nattach="tape" data-ntape="hearts"><span class="minitape" style="background-color:rgba(255,238,242,.9);background-image:radial-gradient(circle at 4px 4px,rgba(224,127,154,.85) 1.8px,transparent 2.4px);background-size:8px 8px"></span></div>
+    <div class="chip" data-nattach="tape" data-ntape="stars"><span class="minitape" style="background-color:rgba(255,248,228,.9);background-image:radial-gradient(circle at 4px 4px,rgba(230,181,78,.9) 1.8px,transparent 2.4px);background-size:8px 8px"></span></div>
+    <div class="chip" data-nattach="tape" data-ntape="clear"><span class="minitape" style="background:linear-gradient(115deg,rgba(220,225,230,.6),rgba(245,247,250,.25) 50%,rgba(220,225,230,.5))"></span></div>
+  </div>
+  <div class="prow"><button class="pbtn" id="noteAdd">pin it up</button>
+    <span class="hint">then grab the ✂ scissors to recut its edges</span></div>
+</div>
+
+<div class="panel" id="panel-guestbook" hidden>
+  <button class="close">✕</button>
+  <h4>guestbook — stitched in</h4>
+  <div class="prow"><span class="lbl">paper</span>
+    <div class="chip colorchip" data-gbpaper="kraft" style="background:linear-gradient(170deg,#eedfc2,#e3d0ad)"></div>
+    <div class="chip colorchip" data-gbpaper="cream" style="background:linear-gradient(170deg,#f8f4e6,#efe6cc)"></div>
+    <div class="chip colorchip" data-gbpaper="blush" style="background:linear-gradient(170deg,#f7dfe2,#eecfd4)"></div>
+    <div class="chip colorchip" data-gbpaper="sage" style="background:linear-gradient(170deg,#e6edda,#d6e0c4)"></div>
+  </div>
+  <div class="prow"><span class="lbl">stitches</span>
+    <div class="chip colorchip" data-gbstitch="#b0413e" style="background:#b0413e"></div>
+    <div class="chip colorchip" data-gbstitch="#3b6fd6" style="background:#3b6fd6"></div>
+    <div class="chip colorchip" data-gbstitch="#3f8f5c" style="background:#3f8f5c"></div>
+    <div class="chip colorchip" data-gbstitch="#7a5230" style="background:#7a5230"></div>
+  </div>
+  <div class="prow"><input type="text" id="gbTitle" placeholder="guestbook — stitched in"></div>
+  <div class="prow"><button class="pbtn" id="gbAdd">stitch it on</button>
+    <span class="hint">visitors write a note and press enter to sign it</span></div>
+</div>
+
+<div class="panel" id="panel-sticker" hidden>
+  <button class="close">✕</button>
+  <h4>stickers — click to slap one on</h4>
+  <div class="stickergrid"></div>
+  <div class="prow">
+    <label class="pbtn" style="display:inline-block">upload your own
+      <input type="file" id="stickerFile" accept="image/*" hidden>
+    </label>
+    <span class="hint">any image becomes a die-cut sticker with a white border</span>
+  </div>
+</div>
+
+<div class="panel" id="panel-music" hidden>
+  <button class="close">✕</button>
+  <h4>music — pick your player</h4>
+  <div class="prow">
+    <div class="chip" data-skin="cassette">📼 cassette</div>
+    <div class="chip" data-skin="walkman">🎧 walkman</div>
+    <div class="chip" data-skin="discman">💿 discman</div>
+    <div class="chip" data-skin="ipod">🎵 ipod</div>
+  </div>
+  <div class="prow"><input type="text" id="musicLabel" placeholder="name your mix — e.g. late nite tapes ♪"></div>
+  <div class="prow"><input type="text" id="musicUrl" placeholder="paste a spotify link (playlist / album / track)"></div>
+  <div class="prow"><button class="pbtn" id="musicAdd">put it on the board</button></div>
+  <div class="hint">with a spotify link, a little player slips out under the device and the play button drives it · without one you get the built-in lo-fi loop</div>
+</div>
+
+<div class="panel" id="panel-decor" hidden>
+  <button class="close">✕</button>
+  <h4>decorate — make it yours</h4>
+  <div class="prow">
+    <div class="chip" data-decor="pothos">🌿 hanging pothos</div>
+    <div class="chip" data-decor="ivy">🍃 ivy garland</div>
+    <div class="chip" data-decor="cactus">🌵 cactus</div>
+  </div>
+  <div class="prow">
+    <div class="chip" data-decor="lights">✨ fairy lights</div>
+    <div class="chip" data-decor="lantern">🏮 lantern</div>
+  </div>
+  <div class="prow">
+    <label class="pbtn" style="display:inline-block">📷 upload your own
+      <input type="file" id="decorFile" accept="image/*" hidden>
+    </label>
+    <span class="hint">same cutting mat — zap the background or lasso around it</span>
+  </div>
+  <div class="hint">everything is draggable — drape the lights wherever feels right</div>
+</div>
+
+<div class="panel" id="panel-pins" hidden>
+  <button class="close">✕</button>
+  <h4>pin box</h4>
+  <div class="prow"><span class="lbl">style</span>
+    <div class="chip" data-pinstyle="ball"><span class="minipin" style="background:radial-gradient(circle at 35% 30%,#fff,#d6453c 65%)"></span> ball</div>
+    <div class="chip" data-pinstyle="pearl"><span class="minipin" style="background:radial-gradient(circle at 32% 28%,#fff,#cdd6e6 70%,#9aa6bd)"></span> pearl</div>
+    <div class="chip" data-pinstyle="brass"><span class="minipin" style="background:radial-gradient(circle at 35% 30%,#fff3c4,#9a7a2e 70%)"></span> brass tack</div>
+    <div class="chip" data-pinstyle="daisy">✿ daisy</div>
+    <div class="chip" data-pinstyle="heart">♥ heart</div>
+    <div class="chip" data-pinstyle="star">★ star</div>
+  </div>
+  <div class="prow"><span class="lbl">colour</span>
+    <div class="chip colorchip" data-pincolor="#d6453c" style="background:#d6453c"></div>
+    <div class="chip colorchip" data-pincolor="#3b6fd6" style="background:#3b6fd6"></div>
+    <div class="chip colorchip" data-pincolor="#d6a23b" style="background:#d6a23b"></div>
+    <div class="chip colorchip" data-pincolor="#3f8f5c" style="background:#3f8f5c"></div>
+    <div class="chip colorchip" data-pincolor="#7a4dbb" style="background:#7a4dbb"></div>
+    <div class="chip colorchip" data-pincolor="#2c2c34" style="background:#2c2c34"></div>
+  </div>
+  <div class="hint">new things get pinned with this · tip: click any pin already on the board to swap it</div>
+</div>
+
+<div class="cutmat" id="cutmat" hidden>
+  <div class="cutmat-card">
+    <h4>✂ cut your sticker</h4>
+    <div class="cm-stage"><canvas id="cmCanvas"></canvas></div>
+    <div class="prow">
+      <button class="pbtn" id="cmRemoveBg">✨ remove background</button>
+      <input type="range" id="cmTol" min="8" max="120" value="42" title="how picky the background zapper is">
+      <button class="pbtn" id="cmLasso">➰ lasso</button>
+      <button class="pbtn alt" id="cmReset">↺ reset</button>
+    </div>
+    <div class="prow">
+      <button class="pbtn" id="cmDone">✓ make sticker</button>
+      <button class="pbtn alt" id="cmCancel">cancel</button>
+    </div>
+    <div class="hint" id="cmHint">✨ zaps the background colour (slider = how picky) · ➰ draw around what you want to keep · or just make it as-is</div>
+  </div>
+</div>
+
+<div class="cutmat" id="darkroom" hidden>
+  <div class="cutmat-card">
+    <h4>🎞 develop your photo</h4>
+    <div class="dk-stage"><div class="dk-frame"><img id="dkImg" alt="your photo"></div></div>
+    <div class="prow" id="dkFilters"></div>
+    <div class="prow"><input type="text" id="dkCap" placeholder="caption — e.g. lisbon, golden hour ☼"></div>
+    <div class="prow">
+      <button class="pbtn" id="dkDone">✓ pin the polaroid</button>
+      <button class="pbtn alt" id="dkCancel">cancel</button>
+    </div>
+    <div class="hint">gifs keep moving — the filter rides on top · caption stays editable on the board</div>
+  </div>
+</div>
+
+<div class="bin" id="bin" title="drag things here to toss them">
+  <svg viewBox="0 0 120 132" width="106" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="binm" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#a8b0ba"/><stop offset=".45" stop-color="#79828d"/><stop offset="1" stop-color="#525a64"/>
+      </linearGradient>
+      <clipPath id="binc"><path d="M14 24h92l-10 100H24z"/></clipPath>
+      <pattern id="mesh1" width="11" height="11" patternUnits="userSpaceOnUse" patternTransform="rotate(48)">
+        <path d="M0 0V11" stroke="rgba(28,33,40,.45)" stroke-width="1.6"/>
+      </pattern>
+      <pattern id="mesh2" width="11" height="11" patternUnits="userSpaceOnUse" patternTransform="rotate(-48)">
+        <path d="M0 0V11" stroke="rgba(28,33,40,.45)" stroke-width="1.6"/>
+      </pattern>
+    </defs>
+    <ellipse cx="60" cy="126" rx="38" ry="5" fill="rgba(30,15,0,.25)"/>
+    <path d="M14 24h92l-10 100H24z" fill="url(#binm)"/>
+    <path d="M14 24h92l-10 100H24z" fill="url(#mesh1)"/>
+    <path d="M14 24h92l-10 100H24z" fill="url(#mesh2)"/>
+    <path d="M20 26l8 94" stroke="rgba(255,255,255,.3)" stroke-width="2" fill="none"/>
+    <ellipse cx="60" cy="24" rx="46" ry="9" fill="#23262c"/>
+    <g class="balls"></g>
+    <ellipse class="rim" cx="60" cy="24" rx="46" ry="9" fill="none" stroke="#454c56" stroke-width="5"/>
+    <ellipse cx="60" cy="23" rx="46" ry="9" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+  </svg>
+</div>
+
+<div class="tray">
+  <button data-panel="panel-polaroid">+ polaroid</button>
+  <button data-panel="panel-sticky">+ sticky note</button>
+  <button data-panel="panel-note">+ note</button>
+  <button data-panel="panel-guestbook">📖 guestbook</button>
+  <button data-panel="panel-sticker">+ sticker</button>
+  <button data-panel="panel-music">♪ music</button>
+  <button data-panel="panel-decor">✿ decor</button>
+  <button data-panel="panel-pins">📌 pins</button>
+  <button id="scissorsBtn" title="cut the edges of papers & stickers">✂ scissors</button>
+  <div class="swatches" title="wall colour">
+    <div class="sw" style="background:#ded5c6" data-c="#ded5c6"></div>
+    <div class="sw" style="background:#cfd8d2" data-c="#cfd8d2"></div>
+    <div class="sw" style="background:#e6d3d1" data-c="#e6d3d1"></div>
+    <div class="sw" style="background:#4a4f5e" data-c="#4a4f5e"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
