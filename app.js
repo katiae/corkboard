@@ -377,13 +377,66 @@ document.getElementById('stickyAdd').addEventListener('click',()=>{
   spawn(`<div class="item note-sticky ${shapeCls} grain" style="--paper:${STICKY_COLORS[sticky.color]}">${attach}<div contenteditable="true" spellcheck="false">write something…</div></div>`);
 });
 
-/* ---- notes panel ---- */
-const note={paper:'p-lined',color:'#fbf9f0',font:'f-caveat',bullet:'♡',attach:'pin',tape:'blush',img:null};
-chipGroup('#panel-note .chip[data-npaper]',ch=>{note.paper=ch.dataset.npaper;note.img=null;document.getElementById('paperUpChip').classList.remove('sel');});
-chipGroup('#panel-note .chip[data-ncolor]',ch=>note.color=ch.dataset.ncolor);
-chipGroup('#panel-note .chip[data-nfont]',ch=>note.font=ch.dataset.nfont);
-chipGroup('#panel-note .chip[data-nbullet]',ch=>note.bullet=ch.dataset.nbullet,1);
+/* ---- notes panel (two-column builder with live preview) ---- */
+const note={paper:'p-lined',color:'#fbf9f0',font:'f-caveat',bullet:'♡',attach:'pin',tape:'blush',img:null,
+  shape:'rect',hl:'none',hlColor:'#ffb59b',strokes:[],pen:'#2b3a67',drawMode:false,vb:[226,190]};
+const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const tint=(hex,a)=>{const n=parseInt(hex.slice(1),16);let r=(n>>16)&255,g=(n>>8)&255,b=n&255;
+  r=Math.round(r+(255-r)*a);g=Math.round(g+(255-g)*a);b=Math.round(b+(255-b)*a);
+  return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1);};
+
+function hlMarkup(){
+  if(!note.hl||note.hl==='none')return '';
+  const c=note.hlColor, id='hl'+Math.random().toString(36).slice(2,7);
+  const grad=`<defs><radialGradient id="${id}" cx="42%" cy="36%" r="78%"><stop offset="0" stop-color="${tint(c,.28)}"/><stop offset="1" stop-color="${c}"/></radialGradient></defs>`;
+  const f=`url(#${id})`;
+  const inner={
+    blob:`<path d="M24 10C44 1 72 3 86 16 97 26 96 47 80 57 62 68 30 69 15 57 1 46 4 19 24 10Z" fill="${f}"/>`,
+    oval:`<ellipse cx="50" cy="34" rx="46" ry="27" fill="${f}"/>`,
+    heart:`<path d="M50 60C18 41 8 29 16 17 23 8 39 9 50 23 61 9 77 8 84 17 92 29 82 41 50 60Z" fill="${f}"/>`,
+    ribbon:`<rect x="4" y="13" width="92" height="40" rx="8" fill="${f}"/>`
+  }[note.hl]||'';
+  return `<svg class="nc-hl" viewBox="0 0 100 68" preserveAspectRatio="none">${grad}${inner}</svg>`;
+}
+function doodleMarkup(){
+  if(!note.strokes.length)return '';
+  const [w,h]=note.vb;
+  const paths=note.strokes.map(s=>`<path d="${s.d}" stroke="${s.c}" stroke-width="${s.w}" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`).join('');
+  return `<svg class="nc-doodle" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">${paths}</svg>`;
+}
+function noteOuter(){
+  const isImg=!!note.img;
+  const paperCls=isImg?'p-image':note.paper;
+  const cls=`note-custom grain paper ${paperCls} ${note.font} shape-${note.shape}`;
+  const style=`--pc:${note.color};${isImg?`background-image:url(${note.img});`:''}`;
+  return {cls,style};
+}
+function noteInner(forBoard){
+  const title=document.getElementById('noteTitle').value.trim();
+  const start=note.bullet?note.bullet+' ':'';
+  const attrs=forBoard?`contenteditable="true" spellcheck="false" data-bullet="${note.bullet}"`:'';
+  return `${hlMarkup()}${doodleMarkup()}${title?`<h3 class="nc-title">${esc(title)}</h3>`:''}`+
+         `<div class="nc-body" ${attrs}>${esc(start)}write something…</div>`;
+}
+const npNote=document.querySelector('.np-note');
+function buildPreview(){
+  const {cls,style}=noteOuter();
+  npNote.className='np-note '+cls+(note.drawMode?' draw':'');
+  npNote.setAttribute('style',style);
+  npNote.innerHTML=noteInner(false);
+  const r=npNote.getBoundingClientRect();
+  if(r.width)note.vb=[Math.round(r.width),Math.round(r.height)];
+}
+
+chipGroup('#panel-note .chip[data-npaper]',ch=>{note.paper=ch.dataset.npaper;note.img=null;document.getElementById('paperUpChip').classList.remove('sel');buildPreview();});
+chipGroup('#panel-note .chip[data-ncolor]',ch=>{note.color=ch.dataset.ncolor;buildPreview();});
+chipGroup('#panel-note .chip[data-nshape]',ch=>{note.shape=ch.dataset.nshape;buildPreview();});
+chipGroup('#panel-note .chip[data-nfont]',ch=>{note.font=ch.dataset.nfont;buildPreview();});
+chipGroup('#panel-note .chip[data-nbullet]',ch=>{note.bullet=ch.dataset.nbullet;buildPreview();},1);
+chipGroup('#panel-note .chip[data-nhl]',ch=>{note.hl=ch.dataset.nhl;buildPreview();},0);
+chipGroup('#panel-note .chip[data-nhlcolor]',ch=>{note.hlColor=ch.dataset.nhlcolor;buildPreview();});
 chipGroup('#panel-note .chip[data-nattach]',ch=>{note.attach=ch.dataset.nattach;if(ch.dataset.ntape)note.tape=ch.dataset.ntape;});
+document.getElementById('noteTitle').addEventListener('input',buildPreview);
 document.getElementById('paperFile').addEventListener('change',e=>{
   const f=e.target.files[0];if(!f)return;
   const rd=new FileReader();
@@ -391,19 +444,49 @@ document.getElementById('paperFile').addEventListener('change',e=>{
     note.img=rd.result;
     document.querySelectorAll('#panel-note .chip[data-npaper]').forEach(c=>c.classList.remove('sel'));
     document.getElementById('paperUpChip').classList.add('sel');
+    buildPreview();
   };
   rd.readAsDataURL(f);
   e.target.value='';
 });
+
+/* doodle pen on the preview note */
+chipGroup('#panel-note .chip[data-npen]',ch=>note.pen=ch.dataset.npen);
+document.getElementById('drawToggle').addEventListener('click',()=>{
+  note.drawMode=!note.drawMode;
+  document.getElementById('drawToggle').classList.toggle('toggled',note.drawMode);
+  npNote.classList.toggle('draw',note.drawMode);
+});
+document.getElementById('drawUndo').addEventListener('click',()=>{note.strokes.pop();buildPreview();});
+document.getElementById('drawClear').addEventListener('click',()=>{note.strokes=[];buildPreview();});
+let curStroke=null;
+function penPt(e){
+  const r=npNote.getBoundingClientRect();
+  note.vb=[Math.round(r.width),Math.round(r.height)];
+  return [(e.clientX-r.left).toFixed(1),(e.clientY-r.top).toFixed(1)];
+}
+npNote.addEventListener('pointerdown',e=>{
+  if(!note.drawMode)return;
+  e.preventDefault();
+  const [x,y]=penPt(e);
+  curStroke={c:note.pen,w:2.4,d:`M${x} ${y}`};
+  note.strokes.push(curStroke);
+  npNote.setPointerCapture(e.pointerId);
+});
+npNote.addEventListener('pointermove',e=>{
+  if(!curStroke)return;
+  const [x,y]=penPt(e);
+  curStroke.d+=`L${x} ${y}`;
+  buildPreview();
+});
+npNote.addEventListener('pointerup',()=>{curStroke=null;});
+
 document.getElementById('noteAdd').addEventListener('click',()=>{
   const attach=note.attach==='pin'?pinHTML():tapeHTML(note.tape,76);
-  const title=document.getElementById('noteTitle').value.trim();
-  const isImg=!!note.img;
-  const style=`--pc:${note.color};${isImg?`background-image:url(${note.img});`:''}`;
-  const paperCls=isImg?'p-image':note.paper;
-  const start=note.bullet?note.bullet+' ':'';
-  spawn(`<div class="item note-custom grain paper ${paperCls} ${note.font}" style="${style}">${attach}${title?`<h3 class="nc-title">${title}</h3>`:''}<div class="nc-body" contenteditable="true" spellcheck="false" data-bullet="${note.bullet}">${start}write something…</div></div>`);
+  const {cls,style}=noteOuter();
+  spawn(`<div class="item ${cls}" style="${style}">${attach}${noteInner(true)}</div>`);
 });
+buildPreview();
 /* each new line starts with the chosen bullet */
 board.addEventListener('keydown',e=>{
   const t=e.target.closest('.nc-body[data-bullet]');

@@ -214,47 +214,91 @@
   <div class="prow"><button class="pbtn" id="stickyAdd">stick it on the board</button></div>
 </div>
 
-<div class="panel" id="panel-note" hidden>
+<div class="panel builder" id="panel-note" hidden>
   <button class="close">✕</button>
-  <h4>notes — write something real</h4>
-  <div class="prow"><span class="lbl">paper</span>
-    <div class="chip" data-npaper="p-lined">lined</div>
-    <div class="chip" data-npaper="p-grid">grid</div>
-    <div class="chip" data-npaper="p-plain">plain</div>
-    <label class="chip" id="paperUpChip">📷 your own…<input type="file" id="paperFile" accept="image/*" hidden></label>
+  <div class="builder-cols">
+    <div class="builder-settings">
+      <h4>notes — write something real</h4>
+      <div class="pgroup"><span class="glabel">paper</span><div class="gopts">
+        <div class="chip" data-npaper="p-lined">lined</div>
+        <div class="chip" data-npaper="p-grid">grid</div>
+        <div class="chip" data-npaper="p-plain">plain</div>
+        <label class="chip" id="paperUpChip">📷 your own…<input type="file" id="paperFile" accept="image/*" hidden></label>
+      </div></div>
+      <div class="pgroup"><span class="glabel">colour</span><div class="gopts">
+        <div class="chip colorchip" data-ncolor="#fbf9f0" style="background:#fbf9f0"></div>
+        <div class="chip colorchip" data-ncolor="#f7f3e7" style="background:#f7f3e7"></div>
+        <div class="chip colorchip" data-ncolor="#e8d9bd" style="background:#e8d9bd"></div>
+        <div class="chip colorchip" data-ncolor="#fbe3e6" style="background:#fbe3e6"></div>
+        <div class="chip colorchip" data-ncolor="#e2ecf7" style="background:#e2ecf7"></div>
+      </div></div>
+      <div class="pgroup"><span class="glabel">shape</span><div class="gopts">
+        <div class="chip" data-nshape="rect">▭ rectangle</div>
+        <div class="chip" data-nshape="rounded">▢ rounded</div>
+        <div class="chip" data-nshape="pill">⬭ pill</div>
+        <div class="chip" data-nshape="oval">◯ oval</div>
+        <div class="chip" data-nshape="banner">▬ banner</div>
+        <div class="chip" data-nshape="cloud">☁ cloud</div>
+      </div></div>
+      <div class="pgroup"><span class="glabel">handwriting</span><div class="gopts">
+        <div class="chip" data-nfont="f-caveat" style="font-family:'Caveat',cursive;font-size:16px">neat ink</div>
+        <div class="chip" data-nfont="f-kalam" style="font-family:'Kalam',cursive">marker</div>
+        <div class="chip" data-nfont="f-shadows" style="font-family:'Shadows Into Light',cursive;font-size:15px">skinny</div>
+      </div></div>
+      <div class="pgroup"><span class="glabel">bullets</span><div class="gopts">
+        <div class="chip" data-nbullet="">none</div>
+        <div class="chip" data-nbullet="♡">♡</div>
+        <div class="chip" data-nbullet="★">★</div>
+        <div class="chip" data-nbullet="•">•</div>
+        <div class="chip" data-nbullet="✿">✿</div>
+        <div class="chip" data-nbullet="✓">✓</div>
+      </div></div>
+      <div class="pgroup"><span class="glabel">highlight shape</span><div class="gopts">
+        <div class="chip" data-nhl="none">none</div>
+        <div class="chip" data-nhl="blob">⬬ blob</div>
+        <div class="chip" data-nhl="oval">◯ oval</div>
+        <div class="chip" data-nhl="heart">♥ heart</div>
+        <div class="chip" data-nhl="ribbon">▭ ribbon</div>
+      </div></div>
+      <div class="pgroup"><span class="glabel">highlight colour</span><div class="gopts">
+        <div class="chip colorchip" data-nhlcolor="#ffb59b" style="background:#ffb59b"></div>
+        <div class="chip colorchip" data-nhlcolor="#a8dcc3" style="background:#a8dcc3"></div>
+        <div class="chip colorchip" data-nhlcolor="#aac6ea" style="background:#aac6ea"></div>
+        <div class="chip colorchip" data-nhlcolor="#f4b3c2" style="background:#f4b3c2"></div>
+        <div class="chip colorchip" data-nhlcolor="#ffe49c" style="background:#ffe49c"></div>
+        <div class="chip colorchip" data-nhlcolor="#d6c2ef" style="background:#d6c2ef"></div>
+      </div></div>
+      <div class="pgroup"><span class="glabel">heading</span><div class="gopts">
+        <input type="text" id="noteTitle" placeholder="a little heading (optional)">
+      </div></div>
+      <div class="pgroup"><span class="glabel">stick with</span><div class="gopts">
+        <div class="chip" data-nattach="pin">📌 a pin</div>
+        <div class="chip" data-nattach="tape" data-ntape="blush"><span class="minitape" style="background:rgba(247,178,189,.85)"></span></div>
+        <div class="chip" data-nattach="tape" data-ntape="gingham"><span class="minitape" style="background:repeating-linear-gradient(0deg,rgba(196,80,77,.5) 0 4px,rgba(255,255,255,.6) 4px 8px),repeating-linear-gradient(90deg,rgba(196,80,77,.5) 0 4px,rgba(255,255,255,.6) 4px 8px)"></span></div>
+        <div class="chip" data-nattach="tape" data-ntape="stripes"><span class="minitape" style="background:repeating-linear-gradient(45deg,rgba(214,140,70,.7) 0 4px,rgba(255,250,235,.8) 4px 8px)"></span></div>
+        <div class="chip" data-nattach="tape" data-ntape="hearts"><span class="minitape" style="background-color:rgba(255,238,242,.9);background-image:radial-gradient(circle at 4px 4px,rgba(224,127,154,.85) 1.8px,transparent 2.4px);background-size:8px 8px"></span></div>
+        <div class="chip" data-nattach="tape" data-ntape="stars"><span class="minitape" style="background-color:rgba(255,248,228,.9);background-image:radial-gradient(circle at 4px 4px,rgba(230,181,78,.9) 1.8px,transparent 2.4px);background-size:8px 8px"></span></div>
+        <div class="chip" data-nattach="tape" data-ntape="clear"><span class="minitape" style="background:linear-gradient(115deg,rgba(220,225,230,.6),rgba(245,247,250,.25) 50%,rgba(220,225,230,.5))"></span></div>
+      </div></div>
+      <div class="pgroup"><span class="glabel">doodle</span><div class="gopts">
+        <button class="chip" id="drawToggle">✏️ draw on it</button>
+        <span class="pen-colors">
+          <div class="chip colorchip" data-npen="#2b3a67" style="background:#2b3a67"></div>
+          <div class="chip colorchip" data-npen="#d6453c" style="background:#d6453c"></div>
+          <div class="chip colorchip" data-npen="#3f8f5c" style="background:#3f8f5c"></div>
+          <div class="chip colorchip" data-npen="#d6a23b" style="background:#d6a23b"></div>
+          <div class="chip colorchip" data-npen="#7a4dbb" style="background:#7a4dbb"></div>
+        </span>
+        <button class="chip" id="drawUndo">↶ undo</button>
+        <button class="chip" id="drawClear">clear</button>
+      </div></div>
+    </div>
+    <div class="builder-preview">
+      <div class="np-stage"><div class="np-note"></div></div>
+      <div class="hint">this is exactly what gets pinned up · toggle ✏️ then draw right on the note</div>
+    </div>
   </div>
-  <div class="prow"><span class="lbl">colour</span>
-    <div class="chip colorchip" data-ncolor="#fbf9f0" style="background:#fbf9f0"></div>
-    <div class="chip colorchip" data-ncolor="#f7f3e7" style="background:#f7f3e7"></div>
-    <div class="chip colorchip" data-ncolor="#e8d9bd" style="background:#e8d9bd"></div>
-    <div class="chip colorchip" data-ncolor="#fbe3e6" style="background:#fbe3e6"></div>
-    <div class="chip colorchip" data-ncolor="#e2ecf7" style="background:#e2ecf7"></div>
-  </div>
-  <div class="prow"><span class="lbl">handwriting</span>
-    <div class="chip" data-nfont="f-caveat" style="font-family:'Caveat',cursive;font-size:16px">neat ink</div>
-    <div class="chip" data-nfont="f-kalam" style="font-family:'Kalam',cursive">marker</div>
-    <div class="chip" data-nfont="f-shadows" style="font-family:'Shadows Into Light',cursive;font-size:15px">skinny</div>
-  </div>
-  <div class="prow"><span class="lbl">bullets</span>
-    <div class="chip" data-nbullet="">none</div>
-    <div class="chip" data-nbullet="♡">♡</div>
-    <div class="chip" data-nbullet="★">★</div>
-    <div class="chip" data-nbullet="•">•</div>
-    <div class="chip" data-nbullet="✿">✿</div>
-    <div class="chip" data-nbullet="✓">✓</div>
-  </div>
-  <div class="prow"><input type="text" id="noteTitle" placeholder="a little heading (optional)"></div>
-  <div class="prow"><span class="lbl">stick with</span>
-    <div class="chip" data-nattach="pin">📌 a pin</div>
-    <div class="chip" data-nattach="tape" data-ntape="blush"><span class="minitape" style="background:rgba(247,178,189,.85)"></span></div>
-    <div class="chip" data-nattach="tape" data-ntape="gingham"><span class="minitape" style="background:repeating-linear-gradient(0deg,rgba(196,80,77,.5) 0 4px,rgba(255,255,255,.6) 4px 8px),repeating-linear-gradient(90deg,rgba(196,80,77,.5) 0 4px,rgba(255,255,255,.6) 4px 8px)"></span></div>
-    <div class="chip" data-nattach="tape" data-ntape="stripes"><span class="minitape" style="background:repeating-linear-gradient(45deg,rgba(214,140,70,.7) 0 4px,rgba(255,250,235,.8) 4px 8px)"></span></div>
-    <div class="chip" data-nattach="tape" data-ntape="hearts"><span class="minitape" style="background-color:rgba(255,238,242,.9);background-image:radial-gradient(circle at 4px 4px,rgba(224,127,154,.85) 1.8px,transparent 2.4px);background-size:8px 8px"></span></div>
-    <div class="chip" data-nattach="tape" data-ntape="stars"><span class="minitape" style="background-color:rgba(255,248,228,.9);background-image:radial-gradient(circle at 4px 4px,rgba(230,181,78,.9) 1.8px,transparent 2.4px);background-size:8px 8px"></span></div>
-    <div class="chip" data-nattach="tape" data-ntape="clear"><span class="minitape" style="background:linear-gradient(115deg,rgba(220,225,230,.6),rgba(245,247,250,.25) 50%,rgba(220,225,230,.5))"></span></div>
-  </div>
-  <div class="prow"><button class="pbtn" id="noteAdd">pin it up</button>
-    <span class="hint">then grab the ✂ scissors to recut its edges</span></div>
+  <div class="builder-footer"><button class="pbtn" id="noteAdd">pin it up</button></div>
 </div>
 
 <div class="panel" id="panel-guestbook" hidden>
